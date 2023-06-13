@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "447434886949",
+    "project_id": "doctoradmin-caef9",
+    "storage_bucket": "doctoradmin-caef9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447434886949:android:27015e96b96fa692a594cc",
+        "android_client_info": {
+          "package_name": "com.doctoradmin.doctoradmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447434886949-c6ls0nq0u6ab2medkulvkv4unqld1bam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDARk0T2twvEnO-7nsWr8fCDhuuAdhtzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447434886949-c6ls0nq0u6ab2medkulvkv4unqld1bam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447434886949:android:c86d1a73f8600c9fa594cc",
+        "android_client_info": {
+          "package_name": "com.carWashing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447434886949-c6ls0nq0u6ab2medkulvkv4unqld1bam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDARk0T2twvEnO-7nsWr8fCDhuuAdhtzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447434886949-c6ls0nq0u6ab2medkulvkv4unqld1bam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
