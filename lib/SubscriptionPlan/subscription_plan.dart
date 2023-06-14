@@ -145,7 +145,9 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
 
         children: [
           SizedBox(height: 50,),
-         getPlan == null  || getPlan == ""?Center(child: CircularProgressIndicator()): Container(
+         getPlan == null  || getPlan == "" ?  Center(child: CircularProgressIndicator()):getPlan!.data!.first.plans!.length == 0 ? Center(
+           child:   Text("No Data Found!!")
+         ) :Container(
            height: MediaQuery.of(context).size.height/1.5,
             width: double.infinity,
             child: ListView.builder(
@@ -212,9 +214,6 @@ class _SubscriptionPlanState extends State<SubscriptionPlan> {
                                   SizedBox(height: 8),
                                   Text( "${getPlan!.data!.first.plans![index].timeText}",style: TextStyle(color: colors.blackTemp),),
                                   SizedBox(height: 8),
-                                  Text( "${getPlan!.data!.first.description}"),
-                                  SizedBox(height: 8),
-
                                   SizedBox(height: 80),
                                   getPlan!.data!.first.plans![index].isPurchased == true ? Padding(
                                     padding: const EdgeInsets.only(left: 20,right: 20),

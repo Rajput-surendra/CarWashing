@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../Helper/Appbar.dart';
 import '../Helper/Color.dart';
+import '../Enquiry/enquire_Screen.dart';
 
 class AccessoriesDetailsSrreen extends StatefulWidget {
   AccessoriesModel? accessoriesListModel;
@@ -15,6 +16,25 @@ class _AccessoriesDetailsSrreenState extends State<AccessoriesDetailsSrreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: Container(
+        color: colors.darkIcon,
+        child: InkWell(
+          onTap: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>EnquireScreen(accessoriesId: widget.accessoriesListModel!.data!.first.id,)));
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 40,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: colors.primary
+              ),
+              child: Center(child: Text("Enquire",style: TextStyle(color: colors.whiteTemp),)),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: colors.darkIcon,
       appBar: customAppBar(context: context, text:"Accessories Details", isTrue: true, ),
       body: Padding(

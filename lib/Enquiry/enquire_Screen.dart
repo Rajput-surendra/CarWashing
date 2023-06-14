@@ -10,7 +10,8 @@ import '../Helper/Appbar.dart';
 import '../Helper/Color.dart';
 import 'package:http/http.dart'as http;
 
-import 'Accessrioes.dart';
+import '../Accessrioes/Accessrioes.dart';
+import 'EnqurieOppUpScreen.dart';
 
 class EnquireScreen extends StatefulWidget {
   String? accessoriesId;
@@ -36,7 +37,6 @@ class _EnquireScreenState extends State<EnquireScreen> {
      userId = preferences.getString('userId');
   }
   submitEnquiryApi() async {
-
     var headers = {
       'Cookie': 'ci_session=d59b9b537f009903b38a8191c5e26131f89f20cd'
     };
@@ -53,9 +53,31 @@ class _EnquireScreenState extends State<EnquireScreen> {
     if (response.statusCode == 200) {
      var result =  await response.stream.bytesToString();
      var finalResult =  jsonDecode(result);
-     Fluttertoast.showToast(msg: "${finalResult['message']}");
-     Navigator.pop(context);
-     // Navigator.push(context, MaterialPageRoute(builder: (context)=>Accessories()));
+
+     // Fluttertoast.showToast(
+     //     msg: "This is Center Short Toast",
+     //     toastLength: Toast.LENGTH_SHORT,
+     //     gravity: ToastGravity.CENTER,
+     //     timeInSecForIosWeb: 1,
+     //     backgroundColor: Colors.red,
+     //     textColor: Colors.white,
+     //     fontSize: 16.0
+     // );
+
+     if(finalResult['status']== true){
+       Fluttertoast.showToast(msg:
+       "${finalResult['message']}",
+           timeInSecForIosWeb: 5,
+         backgroundColor: colors.primary,
+         gravity: ToastGravity.BOTTOM,
+         fontSize: 20
+
+       );
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>EnqurieDetails()));
+     }else{
+
+     }
+
      setState(() {
      });
      nameController.clear();

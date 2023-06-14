@@ -18,6 +18,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../Awreness/Awareness_Inputs_screen.dart';
 import '../Editorial/editorial.dart';
 import '../Event/event_and_webiner.dart';
+import '../New_model/CarWashing/Accessories_model.dart';
 import '../New_model/Check_plan_model.dart';
 import '../New_model/GetCountingModel.dart';
 import '../New_model/GetSelectCatModel.dart';
@@ -162,9 +163,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void initState() {
     super.initState();
+    getAccessoriesApi();
     print("this is my speiality  ${widget.speciality}");
     Future.delayed(Duration(milliseconds: 300), () {
       return getSliderApi();
+
     });
     getSliderApi();
     if(widget.speciality == true){
@@ -181,6 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<Null> callApi() async {
      // getuserProfile();
     getSliderApi();
+    getAccessoriesApi();
 
   }
   CheckPlanModel? checkPlanModel;
@@ -216,6 +220,30 @@ class _HomeScreenState extends State<HomeScreen> {
     print(response.reasonPhrase);
     }
 
+  }
+
+  AccessoriesModel? accessoriesModel;
+  getAccessoriesApi() async {
+    var headers = {
+      'Cookie': 'ci_session=6bcc4535837660e175a6b14cc70b96bd495eeca0'
+    };
+    var request = http.MultipartRequest('POST', Uri.parse('${ApiService.getAccessoriesApi}'));
+    request.fields.addAll({
+    });
+    print('___sdgdfgds_______${request.fields}_________');
+    request.headers.addAll(headers);
+    http.StreamedResponse response = await request.send();
+    if (response.statusCode == 200) {
+      var result =  await response.stream.bytesToString();
+      var finalResult = AccessoriesModel.fromJson(jsonDecode(result));
+      print('____finalResult______${finalResult}_________');
+      setState(() {
+        accessoriesModel = finalResult;
+      });
+    }
+    else {
+      print(response.reasonPhrase);
+    }
   }
   setFilterDataId( String id) async{
     SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -260,89 +288,153 @@ class _HomeScreenState extends State<HomeScreen> {
           key: _key,
           //appBar: customAppBar(context: context, text:"My Dashboard", isTrue: true, ),
           body: SafeArea(
-            child: Column(
-              children: [
-                Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    SizedBox(
-                      //height: 200,
-                      width: double.maxFinite,
-                      child: _sliderModel == null
-                          ? const Center(
-                              child: CircularProgressIndicator(
-                              color: colors.primary,
-                            ))
-                          : _CarouselSlider1(),
-                    ),
-                    Positioned(
-                      bottom: 20,
-                      // left: 80,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: _buildDots(),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Stack(
+                    alignment: Alignment.bottomCenter,
                     children: [
-                      Expanded(
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ServiceScreen()));
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color:  colors.primary.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            height: 150,
-                            child: Column(
-                              children: [
-                                Image.asset("assets/splash/service.png",height: 110,width: 80,),
-                                Text("Service",style: TextStyle(color: colors.primary,fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
                       SizedBox(
-                        width: 10,
+                        //height: 200,
+                        width: double.maxFinite,
+                        child: _sliderModel == null
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                color: colors.primary,
+                              ))
+                            : _CarouselSlider1(),
                       ),
-                      Expanded(
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BrandScreen()));
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color:  colors.primary.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            height: 150,
-                            child: Column(
-                              children: [
-                                Image.asset("assets/splash/asse.png",height: 110,width: 130,),
-                                Text("Accessories",style: TextStyle(color: colors.primary,fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                          ),
+                      Positioned(
+                        bottom: 20,
+                        // left: 80,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: _buildDots(),
                         ),
                       ),
                     ],
                   ),
-                )
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>ServiceScreen()));
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color:  colors.primary.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              height: 150,
+                              child: Column(
+                                children: [
+                                  Image.asset("assets/splash/service.png",height: 110,width: 80,),
+                                  Text("Service",style: TextStyle(color: colors.primary,fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>BrandScreen()));
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color:  colors.primary.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              height: 150,
+                              child: Column(
+                                children: [
+                                  Image.asset("assets/splash/asse.png",height: 110,width: 130,),
+                                  Text("Accessories",style: TextStyle(color: colors.primary,fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                        children: [
+                          accessoriesModel == null ? Center(child: CircularProgressIndicator()): accessoriesModel!.data!.length == 0 ?
+                          Center(child: Text("No data Found!!"),):Container(
+                            height: MediaQuery.of(context).size.height/1.5,
+                            child: ListView.builder(
+                              itemCount: accessoriesModel!.data!.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return InkWell(
+                                  onTap: (){
+                                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>AccessoriesDetailsSrreen(accessoriesListModel:accessoriesModel,)));
+                                  },
+                                  child: Card(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(10)
+                                      ),
+                                      child: Row(
+
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Container(
+                                                height: 90,
+                                                width: 90,
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(10)
+                                                ),
+                                                child: ClipRRect(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    child: Image.network("${accessoriesModel!.data![index].logo}",fit: BoxFit.fill,))),
+                                          ),
+                                          SizedBox(height: 15,),
+                                          Padding(
+                                            padding: const EdgeInsets.only(top: 0),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text("${accessoriesModel!.data![index].name}",style: TextStyle(color: colors.blackTemp,fontWeight: FontWeight.bold),),
+                                                SizedBox(height: 5,),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left: 5),
+                                                  child: Container(
+                                                      width: 90,
+                                                      child: Text("${accessoriesModel!.data![index].description}",overflow: TextOverflow.ellipsis,maxLines: 1,)),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(width: 45),
+
+                                        ],
+                                      )
+                                  ),
+                                );
+                              },
+                            ),
+                          )
+                        ]
+                    ),
+                  )
 
 
-                // SizedBox(height: 100,),
-              ],
+                  // SizedBox(height: 100,),
+                ],
+              ),
             ),
           ),
         ),

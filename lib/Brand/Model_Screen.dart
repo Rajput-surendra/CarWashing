@@ -10,7 +10,7 @@ import '../Helper/Color.dart';
 import 'package:http/http.dart'as http;
 
 import '../api/api_services.dart';
-import 'Accessrioes.dart';
+import '../Accessrioes/Accessrioes.dart';
 
 class ModelScreen extends StatefulWidget {
   String? branId;

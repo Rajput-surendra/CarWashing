@@ -21,6 +21,8 @@ class ApiService {
   static const String getPlanPurchasApi = baseUrl+'purchase_subscription';
   static const String getSubsriptionApi = baseUrl+'subscription_plans';
   static const String getSubsriptionListApi = baseUrl+'subscribed_plans';
+  static const String getPrivacyPolicyApi = baseUrl+'static_pages/privacy-policy';
+  static const String getTermsConditionsApi = baseUrl+'static_pages/terms-conditions';
 
   static const String getEvents = baseUrl+'get_events';
 

@@ -122,26 +122,49 @@ class _SubmitEnquiryListScreenState extends State<SubmitEnquiryListScreen> {
 
                                 ],
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Container(
-                                    width: 200,
-                                    child: Text("${getEnquiryListModel!.data![index].name}",overflow: TextOverflow.ellipsis,maxLines: 1,style: TextStyle(fontWeight: FontWeight.bold,color: colors.blackTemp),)),
-                              ),
-                              SizedBox(height: 3,),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Container(
-                                    width: 200,
-                                    child: Text("${getEnquiryListModel!.data![index].mobile}",overflow: TextOverflow.ellipsis,maxLines: 1,)),
-                              ),
-                              SizedBox(height: 3,),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Container(
-                                    width: 300,
-                                    child: Text("${getEnquiryListModel!.data![index].message}",overflow: TextOverflow.ellipsis,maxLines: 1,)),
-                              ),
+                               Padding(
+                                 padding: const EdgeInsets.all(8.0),
+                                 child: Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                   children: [
+                                     Column(
+                                       crossAxisAlignment: CrossAxisAlignment.start,
+                                       children: [
+                                         Text("Name",overflow: TextOverflow.ellipsis,maxLines: 1,style: TextStyle(fontWeight: FontWeight.bold,color: colors.blackTemp),),
+                                         SizedBox(height: 3,),
+                                         Text("Mobile",overflow: TextOverflow.ellipsis,maxLines: 1,style: TextStyle(fontWeight: FontWeight.bold,color: colors.blackTemp),),
+                                         SizedBox(height: 3,),
+                                         Text("Description",overflow: TextOverflow.ellipsis,maxLines: 1,style: TextStyle(fontWeight: FontWeight.bold,color: colors.blackTemp),),
+                                       ],
+                                     ),
+                                     Column(
+                                       crossAxisAlignment: CrossAxisAlignment.start,
+                                       children: [
+                                         Padding(
+                                           padding: const EdgeInsets.only(left: 5),
+                                           child: Container(
+                                               width: 200,
+                                               child: Text("${getEnquiryListModel!.data![index].name}",overflow: TextOverflow.ellipsis,maxLines: 1,style: TextStyle(fontWeight: FontWeight.bold,color: colors.blackTemp),)),
+                                         ),
+                                         SizedBox(height: 3,),
+                                         Padding(
+                                           padding: const EdgeInsets.only(left: 5),
+                                           child: Container(
+                                               width: 200,
+                                               child: Text("${getEnquiryListModel!.data![index].mobile}",overflow: TextOverflow.ellipsis,maxLines: 1,)),
+                                         ),
+                                         SizedBox(height: 3,),
+                                         Padding(
+                                           padding: const EdgeInsets.only(left: 5),
+                                           child: Container(
+                                               width: 150,
+                                               child: Text("${getEnquiryListModel!.data![index].message}",overflow: TextOverflow.ellipsis,maxLines: 1,)),
+                                         ),
+                                       ],
+                                     )
+                                   ],
+                                 ),
+                               ),
                               SizedBox(height: 10,)
                             ],
                           )

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:doctorapp/Brand/AccessoriesDetailsScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +11,11 @@ import '../New_model/CarWashing/Accessories_model.dart';
 import '../New_model/CarWashing/Accessories_model.dart';
 import '../New_model/CarWashing/Get_brand_model.dart';
 import '../api/api_services.dart';
-import 'Model_Screen.dart';
+import '../Brand/Model_Screen.dart';
 import 'package:http/http.dart'as http;
 
-import 'enquire_Screen.dart';
+import '../Enquiry/enquire_Screen.dart';
+import 'AccessoriesDetailsScreen.dart';
 
 class Accessories extends StatefulWidget {
   String? modelId;

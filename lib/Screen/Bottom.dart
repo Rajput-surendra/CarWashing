@@ -11,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../AuthenticationView/LoginScreen.dart';
 import '../Booking/booking_screen.dart';
-import '../Brand/enquiry_List_Screen.dart';
+import '../Enquiry/enquiry_List_Screen.dart';
 import '../Helper/Appbar.dart';
 import '../Helper/Color.dart';
 import '../New_model/getUserProfileModel.dart';
@@ -227,65 +227,65 @@ class _BottomScreenState extends State<BottomScreen> {
           SizedBox(
             height: 10,
           ),
-          // Container(
-          //   decoration: BoxDecoration(
-          //     gradient: LinearGradient(
-          //       begin: Alignment.topRight,
-          //       end: Alignment.bottomLeft,
-          //       colors: [
-          //         colors.white10,
-          //         colors.primary,
-          //       ],
-          //     ),
-          //   ),
-          //   child: ListTile(
-          //     leading: Container(
-          //       decoration: BoxDecoration(
-          //           color: Colors.white,
-          //           borderRadius: BorderRadius.circular(50)),
-          //       child: Image.asset(
-          //         "assets/images/drawer1.png",
-          //         color: colors.black54,
-          //         scale: 1.3,
-          //         height: 40,
-          //         width: 40,
-          //       ),
-          //     ),
-          //     title: Text(
-          //       ' My Profile',
-          //     ),
-          //     onTap: () {
-          //       Navigator.push(context,
-          //           MaterialPageRoute(builder: (Context) => ProfileScreen()));
-          //       // Navigator.push(
-          //       //   context,
-          //       //   MaterialPageRoute(builder: (context) => HomeScreen()),
-          //       // );
-          //     },
-          //   ),
-          // ),
-          ListTile(
-            leading: Image.asset(
-              "assets/images/home.png",
-              color: colors.black54,
-              height: 40,
-              width: 40,
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  colors.white10,
+                  colors.primary,
+                ],
+              ),
             ),
-            title: Text(
-              'Home',
+            child: ListTile(
+              leading: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50)),
+                child: Image.asset(
+                  "assets/splash/home.png",
+                  //color: colors.black54,
+                  scale: 1.3,
+                  height: 40,
+                  width: 40,
+                ),
+              ),
+              title: Text(
+                'Home',
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (Context) => BottomScreen()));
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => HomeScreen()),
+                // );
+              },
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => BottomScreen()),
-              );
-            },
           ),
+          // ListTile(
+          //   leading: Image.asset(
+          //     "assets/images/home.png",
+          //     color: colors.black54,
+          //     height: 40,
+          //     width: 40,
+          //   ),
+          //   title: Text(
+          //     'Home',
+          //   ),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => BottomScreen()),
+          //     );
+          //   },
+          // ),
 
           ListTile(
             leading: Image.asset(
-              "assets/images/Term & Conditions.png",
-              color: colors.black54,
+              "assets/splash/inquiry.png",
+             // color: colors.black54,
               height: 40,
               width: 40,
             ),
@@ -301,10 +301,10 @@ class _BottomScreenState extends State<BottomScreen> {
           ),
           ListTile(
             leading: Image.asset(
-              "assets/images/sub.png",
-              color: colors.black54,
-              height: 40,
-              width: 40,
+              "assets/splash/subsciption.png",
+              //color: colors.black54,
+              height: 30,
+              width: 30,
             ),
             title: Text(
               'My Subscription Plan',
@@ -319,10 +319,10 @@ class _BottomScreenState extends State<BottomScreen> {
 
           ListTile(
             leading: Image.asset(
-              "assets/images/Term & Conditions.png",
-              height: 40,
-              width: 40,
-              color: colors.black54,
+              "assets/splash/terrns and condition.png",
+              height: 30,
+              width: 30,
+              //color: colors.black54,
             ),
             title: Text(
               'Terms &Conditions',
@@ -336,10 +336,10 @@ class _BottomScreenState extends State<BottomScreen> {
           ),
           ListTile(
             leading: Image.asset(
-              "assets/images/Privacy Policy.png",
-              color: colors.black54,
-              height: 40,
-              width: 40,
+              "assets/splash/privacy policy.png",
+             // color: colors.black54,
+              height: 30,
+              width: 30,
             ),
             title: Text(
               'Privacy Policy',
@@ -374,9 +374,9 @@ class _BottomScreenState extends State<BottomScreen> {
           ListTile(
             leading: Image.asset(
               "assets/images/Sign Out.png",
-              color: colors.black54,
-              height: 40,
-              width: 40,
+              color: colors.primary,
+              height: 30,
+              width: 30,
               //color: Colors.grey.withOpacity(0.8),
             ),
             title: Text(

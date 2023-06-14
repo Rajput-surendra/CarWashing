@@ -131,12 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       bottomSheet:  Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-
-          decoration: BoxDecoration(
-             color:colors.secondary,
-            borderRadius: BorderRadius.circular(10)
-          ),
-          height: 50,
+          color: colors.darkIcon,
           child: InkWell(
             onTap: (){
               Navigator.push(
@@ -147,7 +142,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ).then((value) => getuserProfile());
             },
-            child: Center(child: Text("Edit Profile",style: TextStyle(color: colors.whiteTemp),))
+            child: Container(
+              decoration: BoxDecoration(
+                 color:colors.primary,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              height: 40,
+              child: Center(child: Text("Edit Profile",style: TextStyle(color: colors.whiteTemp),)),
+            ),
           ),
         ),
       ),
@@ -187,7 +189,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   shape:  RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50)
                   ),
-                  elevation: 3,
+                  // elevation: 3,
                   child: Container(
                     width: 100,
                     height: 100,
@@ -223,6 +225,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 40,
               ),
             Card(
+              elevation: 0,
               child:Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
